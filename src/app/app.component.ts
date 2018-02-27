@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Circle } from './objects/circle';
+import { Rect } from './objects/rect';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Coisa';
 
-  values = {
-    strokeWidth : 0,
-    radius : 50,
-    fillColor : '#FF7D5D',
-    strokeColor : '#CD213B',
-    x : 50,
-    y : 50
-  };
+  private objects: Object[] = [];
+  private selectedObject: Object;
+
+  public addCircle() {
+    const circle = new Circle();
+    this.objects.push(circle);
+  }
+
+  public addRect() {
+    const rect = new Rect();
+    this.objects.push(rect);
+  }
+
+  public onSelectObject(object) {
+    this.selectedObject = object;
+  }
 }

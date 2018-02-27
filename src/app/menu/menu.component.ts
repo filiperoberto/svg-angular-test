@@ -7,11 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() values;
+  @Input() selectedObject;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

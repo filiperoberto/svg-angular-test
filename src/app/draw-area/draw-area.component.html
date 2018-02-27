@@ -1,13 +1,30 @@
 <div class='draw-area' [class.moving]='moving' (mousemove)='onMouseMove($event)' (mousedown)='onMouseDown($event)' (mouseup)='onMouseUp($event)'>
     <svg width="500" height="400">
-    <circle
-      (mousedown)='onCircleMouseDown($event)'
-      [attr.cx]="values.x"
-      [attr.cy]="values.y"
-      [attr.r]="values.radius"
-      [attr.stroke]="values.strokeColor"
-      [attr.stroke-width]="values.strokeWidth"
-      [attr.fill]="values.fillColor" />
+      <ng-container *ngFor="let object of objects">
+        <circle
+          *ngIf="object.type === 'circle'"
+          (click)='selectObject(object)'
+          (mousedown)='onCircleMouseDown(object)'
+          [attr.cx]="object.x"
+          [attr.cy]="object.y"
+          [attr.r]="object.radius"
+          [attr.stroke]="object.strokeColor"
+          [attr.stroke-width]="object.strokeWidth"
+          [attr.fill]="object.fillColor" />
+
+        <rect
+          *ngIf="object.type === 'rect'"
+          (click)='selectObject(object)'
+          (mousedown)='onCircleMouseDown(object)'
+          [attr.x]="object.x"
+          [attr.y]="object.y"
+          [attr.width]='object.width'
+          [attr.height]='object.height'
+          [attr.stroke]="object.strokeColor"
+          [attr.stroke-width]="object.strokeWidth"
+          [attr.fill]="object.fillColor"
+          />
+      </ng-container>
     Sorry, your browser does not support inline SVG.
   </svg>
 </div>

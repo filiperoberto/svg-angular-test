@@ -1,5 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class='container'>
-    <app-menu [values]='values'></app-menu>
-    <app-draw-area [values]='values'></app-draw-area>
+    <div class="row">
+        <div class='col-md-3'>
+            <button (click)='addCircle()'>Add Circle</button>
+            <button (click)='addRect()'>Add Rect</button>
+            <app-menu [selectedObject]='selectedObject'></app-menu>
+        </div>
+        <div class='col-md-9'>
+            <app-draw-area [objects]='objects' (select)='onSelectObject($event)'></app-draw-area>
+        </div>
+    </div>
 </div>

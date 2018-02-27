@@ -1,26 +1,35 @@
-<div class="">
+<div *ngIf='selectedObject' class="">
+    <h1>{{selectedObject.type}}</h1>
     <div class="">
         <label>Stroke Width</label>
-        <input class="" min='0' step="1" type='number' [(ngModel)]="values.strokeWidth" />
+        <input class="" min='0' step="1" type='number' [(ngModel)]="selectedObject.strokeWidth" />
     </div>
     <div class="">
         <label>Fill Color</label>
-        <input class="" type='color' [(ngModel)]="values.fillColor" />
+        <input class="" type='color' [(ngModel)]="selectedObject.fillColor" />
     </div>
     <div class="">
         <label>Stroke Color</label>
-        <input class="" type='color' [(ngModel)]="values.strokeColor" />
+        <input class="" type='color' [(ngModel)]="selectedObject.strokeColor" />
     </div>
-    <div class="">
+    <div class="" *ngIf="selectedObject.radius">
         <label>Radius</label>
-        <input class="" min='10' step="1" type='number' [(ngModel)]="values.radius" />
+        <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.radius" />
     </div>
     <div class="">
         <label>X</label>
-        <input class="" min='10' step="1" type='number' [(ngModel)]="values.x" />
+        <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.x" />
     </div>
     <div class="">
         <label>Y</label>
-        <input class="" min='10' step="1" type='number' [(ngModel)]="values.y" />
+        <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.y" />
+    </div>
+    <div class="" *ngIf="selectedObject.width">
+        <label>Width</label>
+        <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.width" />
+    </div>
+    <div class="" *ngIf="selectedObject.height">
+        <label>Height</label>
+        <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.height" />
     </div>
 </div>
