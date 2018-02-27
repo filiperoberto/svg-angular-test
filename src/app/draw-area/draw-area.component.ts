@@ -12,7 +12,7 @@ export class DrawAreaComponent implements OnInit {
   @Output() select = new EventEmitter<SvgObject>();
 
   private selectedObject;
-  private moving = false;
+  public moving = false;
   private position = {
     x: 0,
     y: 0
@@ -37,7 +37,7 @@ export class DrawAreaComponent implements OnInit {
     this.position.y = e.pageY - this.selectedObject.y;
   }
 
-  onMouseUp() {
+  onMouseUp(e) {
     this.moving = false;
   }
 

@@ -11,10 +11,10 @@ import { SvgObject } from './objects/object';
 })
 export class AppComponent {
 
-  private objects: SvgObject[] = [];
-  private selectedObject: SvgObject;
-  private json = '';
-  private error = false;
+  public objects: SvgObject[] = [];
+  public selectedObject: SvgObject;
+  public json = '';
+  public error = false;
 
   public addCircle() {
     const circle = new Circle();
