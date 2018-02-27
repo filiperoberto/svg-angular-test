@@ -1,0 +1,8 @@
+.item-object,
+.visibility-button {
+    cursor: pointer;
+}
+
+.item-object:hover {
+    background: #ccc;
+}

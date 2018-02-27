@@ -2,7 +2,7 @@
     <svg width="500" height="400">
       <ng-container *ngFor="let object of objects">
         <circle
-          *ngIf="object.type === 'circle'"
+          *ngIf="object.type === 'circle' && object.visible"
           (click)='selectObject(object)'
           (mousedown)='onCircleMouseDown(object)'
           [attr.cx]="object.x"
@@ -13,9 +13,11 @@
           [attr.fill]="object.fillColor" />
 
         <rect
-          *ngIf="object.type === 'rect'"
+          *ngIf="object.type === 'rect' && object.visible"
           (click)='selectObject(object)'
           (mousedown)='onCircleMouseDown(object)'
+          [attr.rx]="object.rx"
+          [attr.ry]="object.ry"
           [attr.x]="object.x"
           [attr.y]="object.y"
           [attr.width]='object.width'
@@ -24,6 +26,16 @@
           [attr.stroke-width]="object.strokeWidth"
           [attr.fill]="object.fillColor"
           />
+
+        <text 
+          *ngIf="object.type === 'text' && object.visible"
+          (click)='selectObject(object)'
+          (mousedown)='onCircleMouseDown(object)'
+          [attr.x]="object.x"
+          [attr.y]="object.y"
+          [attr.fill]="object.fillColor"
+          [attr.font-size]="object.fontSize"
+        >{{object.text}}</text>
       </ng-container>
     Sorry, your browser does not support inline SVG.
   </svg>

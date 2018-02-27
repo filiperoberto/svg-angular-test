@@ -1,13 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class='container'>
+    <div class="alert alert-danger" *ngIf="error" role="alert">Error parsing json</div>
     <div class="row">
         <div class='col-md-3'>
             <button (click)='addCircle()'>Add Circle</button>
             <button (click)='addRect()'>Add Rect</button>
+            <button (click)='addText()'>Add Text</button>
+            <button (click)='save()'>Save</button>
+            <button (click)='load()'>Load</button>
             <app-menu [selectedObject]='selectedObject'></app-menu>
         </div>
-        <div class='col-md-9'>
+        <div class='col-md-7'>
             <app-draw-area [objects]='objects' (select)='onSelectObject($event)'></app-draw-area>
+        </div>
+        <div class='col-md-2'>
+            <app-element-list [objects]='objects' (select)='onSelectObject($event)'></app-element-list>
+        </div>
+        <div class='col-md-12'>
+            <textarea class='json-text-area' [(ngModel)]="json"></textarea>
         </div>
     </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Circle } from './objects/circle';
+import { Text } from './objects/text';
 import { Rect } from './objects/rect';
+import { SvgObject } from './objects/object';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,10 @@ import { Rect } from './objects/rect';
 })
 export class AppComponent {
 
-  private objects: Object[] = [];
-  private selectedObject: Object;
+  private objects: SvgObject[] = [];
+  private selectedObject: SvgObject;
+  private json = '';
+  private error = false;
 
   public addCircle() {
     const circle = new Circle();
@@ -22,7 +26,31 @@ export class AppComponent {
     this.objects.push(rect);
   }
 
-  public onSelectObject(object) {
+  public addText() {
+    const text = new Text();
+    this.objects.push(text);
+  }
+
+  public onSelectObject(object: SvgObject) {
+
+    this.objects.forEach(obj => obj.active = false);
     this.selectedObject = object;
+    this.selectedObject.active = true;
+  }
+
+  public save() {
+    this.json = JSON.stringify(this.objects);
+  }
+
+  public load() {
+
+    this.error = false;
+
+    try {
+      this.objects = JSON.parse(this.json);
+    } catch (error) {
+      this.error = true;
+    }
+
   }
 }

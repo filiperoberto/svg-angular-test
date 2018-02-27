@@ -32,4 +32,20 @@
         <label>Height</label>
         <input class="" min='10' step="1" type='number' [(ngModel)]="selectedObject.height" />
     </div>
+    <div class="" *ngIf="selectedObject.rx !== undefined">
+        <label>Rx</label>
+        <input class="" min='0' step="1" type='number' [(ngModel)]="selectedObject.rx" />
+    </div>
+    <div class="" *ngIf="selectedObject.ry !== undefined">
+        <label>Ry</label>
+        <input class="" min='0' step="1" type='number' [(ngModel)]="selectedObject.ry" />
+    </div>
+    <div class="" *ngIf="selectedObject.fontSize !== undefined">
+        <label>Font Size</label>
+        <input class="" min='0' step="1" type='number' [(ngModel)]="selectedObject.fontSize" />
+    </div>
+    <div class="" *ngIf="selectedObject.text !== undefined">
+        <label>Text</label>
+        <input class="" type='text' [(ngModel)]="selectedObject.text" />
+    </div>
 </div>
