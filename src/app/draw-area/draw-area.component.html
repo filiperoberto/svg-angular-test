@@ -1,0 +1,13 @@
+<div class='draw-area' [class.moving]='moving' (mousemove)='onMouseMove($event)' (mousedown)='onMouseDown($event)' (mouseup)='onMouseUp($event)'>
+    <svg width="500" height="400">
+    <circle
+      (mousedown)='onCircleMouseDown($event)'
+      [attr.cx]="values.x"
+      [attr.cy]="values.y"
+      [attr.r]="values.radius"
+      [attr.stroke]="values.strokeColor"
+      [attr.stroke-width]="values.strokeWidth"
+      [attr.fill]="values.fillColor" />
+    Sorry, your browser does not support inline SVG.
+  </svg>
+</div>

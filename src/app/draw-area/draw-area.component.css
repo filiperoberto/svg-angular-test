@@ -1,0 +1,16 @@
+.draw-area {
+    text-align: center;
+}
+
+svg {
+    border: 1px solig #ccc;
+    border-radius: 2px;
+}
+
+.draw-area.moving {
+    cursor: -webkit-grabbing;
+}
+
+circle {
+    cursor: -webkit-grab;
+}
